@@ -16,7 +16,6 @@ def rag_search(query: str) -> str:
 
     joined = "\n---\n".join(chunk for chunk, _ in results)
 
-    # 只有检索结果里真的出现电话号码格式时，才交给模型
     if not PHONE_PATTERN.search(joined):
         return "NO_RELEVANT_INFO"
 
